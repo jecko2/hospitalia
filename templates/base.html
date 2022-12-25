@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Describes the encoding of the page to the browser -->
+    <meta charset="utf-8" />
+
+    <!-- Sets the title of the page.  Shown in the tab of your browser -->
+    <title>Hospitania</title>
+
+    <!-- Required for Bootstrap's responsive media queries to function -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- FontAwesome Kit -->
+    <script
+      src="https://kit.fontawesome.com/a7d18a2d30.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="{% static 'img/favicon.png' %}"
+      type="image/png"
+    />
+
+    <!-- Meta tag for basic SEO -->
+    <meta name="description" content="hospitania" />
+
+    <!-- Main Theme CSS styles -->
+    <link
+      href="{% static 'css/theme.css' %}"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+
+    <!-- Font linked from external Google Fonts resource -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- alert -->
+
+    <!-- /alert -->
+
+    <!-- 
+        ============== Header Desktop && Mobile ===============
+     -->
+    {% include "partials/header.html" %}
+    <!-- 
+        ============== /Header Desktop && Mobile ===============
+     -->
+
+    {% block content %}
+
+    <!-- slider1 -->
+
+    <!-- /slider1 -->
+
+    {% endblock content %}
+
+    <!-- 
+        ============ /Footer ============
+      -->
+    {% include "partials/footer.html" %}
+    <!-- 
+        ============ /Footer ============
+      -->
+    <!-- modal -->
+
+    {% include "special.html" %}
+
+    <!-- Required vendor scripts (Do not remove) -->
+    <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+    <script src="{% static 'js/plugins.bundle.js' %}"></script>
+    <!-- Modify theme scripts (Do not remove) -->
+    <script src="{% static 'js/theme.js' %}"></script>
+  </body>
+</html>

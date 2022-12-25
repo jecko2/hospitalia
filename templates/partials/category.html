@@ -1,0 +1,39 @@
+{% load static %}
+<!-- //categories -->
+{% if categories %}
+<div class="pt-5">
+  <div class="py-5 bg-light">
+    <div class="container-fluid theme-container">
+      <div class="row mb-2">
+        <div class="col">
+          <h5 class="product-heading">Popular Category</h5>
+        </div>
+      </div>
+      <div
+        class="slider arrow-light slider-gap"
+        data-slides-to-show="8"
+        data-autoplay="true"
+        data-nav="true"
+        data-dots="false"
+      >
+        {% for post in categories %}
+
+        <div class="product-categories">
+          <a href="{{post.get_absolute_url}}" class="product-img bg-white">
+            <img
+              src="{% if post.image %}{{post.image.url}}{% else %}{% static 'img/category/category-1.png' %}{% endif%}"
+              class=""
+              alt=""
+            />
+          </a>
+          <a href="{{post.get_absolute_url}}" class="product-info">
+            {{post.name}}
+          </a>
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}

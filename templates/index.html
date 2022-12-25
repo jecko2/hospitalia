@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% load static %}
+<!-- content -->
+{% block content %}
+<!-- slider -->
+<div class="slider" data-autoplay="true" data-autoplay-speed="4000">
+  {% if slider %} {% for slide in slider %}
+  <a href="javascript:void(0)">
+    <img src="{{slide.slider.url}}" alt="{{slide.slider.name}}" />
+  </a>
+  {% endfor %} {% endif %}
+</div>
+<!-- /slider -->
+
+<!--============== CATEGORY ==============-->
+{% include 'partials/popcat.html' %}
+<!--============== CATEGORY ==============-->
+
+<!--============== PRODUCT ==============-->
+{% include 'partials/product.html' %}
+<!--============== /PRODUCT ==============-->
+
+<!--============== OFFER ==============-->
+{% include 'partials/offer.html' %}
+<!--============== /OFFER ==============-->
+
+<!--============== PRODUCT GRID ==============-->
+{% include 'partials/productg.html' %}
+<!--============== /PRODUCT GRID ==============-->
+
+<!--============== BRAND ==============-->
+{% include 'partials/brand.html' %}
+<!-- //// -->
+{% include 'partials/productb.html' %}
+<!--============== /BRAND ==============-->
+
+<!--============== CATEGORY ==============-->
+{% include 'partials/category.html' %}
+<!--============== /CATEGORY ==============-->
+
+{% endblock content %}

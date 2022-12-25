@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+<!--  -->
+
+{% block content %}
+<main>
+  <section class="pt-5 pt-md-7">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-md-12 order-md-2">
+          <div class="row shop-header align-items-center">
+            <div class="col-lg-6">
+              <div class="grid-icons">
+                <button class="three-column active"></button>
+                <button class="four-column d-none d-lg-block"></button>
+                <button class="five-column d-none d-lg-block"></button>
+                <button class="list-view"></button>
+              </div>
+            </div>
+
+            <div class="col-lg-6 text-lg-right">
+              <div class="single-select-block d-inline-block">
+                <span class="select-title">Show:</span>
+                <select class="wide border-0">
+                  <option value="1">10</option>
+                  <option value="2">20</option>
+                  <option value="3">30</option>
+                  <option value="4">40</option>
+                </select>
+              </div>
+
+              <div class="single-select-block d-inline-block">
+                <span class="select-title">Sort By:</span>
+                <select class="wide border-0">
+                  <option value="1">Default</option>
+                  <option value="2">Name (A-Z)</option>
+                  <option value="3">Price (min - max)</option>
+                  <option value="4">Color</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            {% for item in items %}
+            <div class="col-md-4 col-sm-6 col-12">
+              <div class="product">
+                <a href="{{item.get_absolute_url}}" class="{{item.name}}">
+                  <img
+                    src="{{item.pic.url}}"
+                    class="align-content-center d-block m-auto"
+                    alt=""
+                    style="max-width: 50px; height: auto;"
+                  />
+                </a>
+                <div class="product-info">
+                  <div class="product-rating">
+                    {% for rate in "12345" %}
+                    <i class="fa fa-star"></i>
+                    {% endfor %}
+                    <div class="review-count">{{item.rating}} (2,213)</div>
+                  </div>
+                  <h3>
+                    <a href="{{item.get_absolute_url}}">
+                      {{item.name}}
+                    </a>
+                  </h3>
+                  <div class="product-value">
+                    {% if item.is_discounted %}
+                    <div class="d-flex">
+                      <small class="regular-price">
+                        MRP <del>${{item.price}}</del>
+                      </small>
+                      <div class="off-price">
+                        {{item.get_percentage_off}}% off
+                      </div>
+                    </div>
+                    <div class="current-price">
+                      ${{item.get_discounted_price}}
+                    </div>
+                    {% else %}
+                    <div class="current-price">
+                      ${{item.get_discounted_price}}
+                    </div>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock content %}

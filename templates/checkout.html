@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+<!--  -->
+{% load static %}
+<!--  -->
+
+{% block content %}
+
+<section class="section-padding mt-5">
+  <div class="container">
+    <div class="row justify-content-between">
+      <!-- checkoutform -->
+      <form action="" method="post" class="w-75 d-flex">
+        {% csrf_token %}
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="row pb-4">
+                <div class="col-sm-6">
+                  <div class="form-group mb-4">
+                    <label class="form-label"
+                      >First name <span class="text-danger">*</span></label
+                    >
+                    {{form.first_name}}
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group mb-4">
+                    <label class="form-label"
+                      >Last name <span class="text-danger">*</span></label
+                    >
+                    {{form.last_name}}
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group mb-4">
+                    <label class="form-label"
+                      >Email address <span class="text-danger">*</span></label
+                    >
+                    {{form.email}}
+                  </div>
+                </div>
+              </div>
+              <div id="accordion">
+                <div class="accordion-item">
+                  <div class="accordion-title">
+                    <h5
+                      class="mb-0"
+                      data-toggle="collapse"
+                      data-target="#collapseOne"
+                      aria-expanded="true"
+                    >
+                      Pay with MPesaXPress
+                    </h5>
+                  </div>
+                  <div
+                    class="accordion-content collapse show"
+                    id="collapseOne"
+                    data-parent="#accordion"
+                  >
+                    <div class="accordion-content-inner">
+                      <p class="py-4">
+                        The fasted payment method to make your transactions
+                        <img
+                          width="w-100"
+                          height="40px"
+                          alt="M-PESA LOGO-01"
+                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/M-PESA_LOGO-01.svg/256px-M-PESA_LOGO-01.svg.png"
+                        />
+                      </p>
+                      <form class="credit-card-form row g-3">
+                        <div class="col-sm-12 mb-4">
+                          {{form.phone}}
+                        </div>
+                        <div class="col-sm-6 mb-4">
+                          <!-- <a
+                            href="thak-you.html"
+                            class="btn btn-primary d-block w-100"
+                            >Place order</a
+                          > -->
+                          <input
+                            type="submit"
+                            value="Place order"
+                            class="btn btn-primary d-block w-100"
+                          />
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <!-- accordion Title -->
+                  <div class="accordion-title">
+                    <h5
+                      class="mb-0"
+                      data-toggle="collapse"
+                      data-target="#collapseThree"
+                    >
+                      Pay On Delivery
+                    </h5>
+                  </div>
+                  <!-- accordion Content -->
+                  <div
+                    class="collapse accordion-content"
+                    id="collapseThree"
+                    data-parent="#accordion"
+                  >
+                    <div class="accordion-content-inner">
+                      <p class="pt-4 mb-0 pb-3">
+                        <span class="font-weight-bold">Cash On Delevary</span>
+                        -Buy Now Pay Later for all your shopping
+                      </p>
+                      <input
+                        type="submit"
+                        value="Place order"
+                        class="btn btn-primary d-block w-100"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

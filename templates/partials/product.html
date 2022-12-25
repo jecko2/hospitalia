@@ -1,0 +1,51 @@
+{% load static %}
+
+<!-- //product slider -->
+<div class="pt-5">
+  <div class="container-fluid theme-container">
+    <div class="row mb-4">
+      <div class="col">
+        <h5 class="product-heading">Most Purchased</h5>
+      </div>
+    </div>
+    <div
+      class="slider arrow-light slider-gap"
+      data-slides-to-show="6"
+      data-autoplay="true"
+      data-nav="true"
+      data-dots="false"
+    >
+      {% if product %} {% for post in product %}
+      <div class="product">
+        <a href="{{post.get_absolute_url}}" class="product-img">
+          <img src="{{post.pic.url}}" class="" alt="" />
+        </a>
+        <div class="product-info">
+          <div class="product-rating">
+            {% for rate in "12345" %}
+            <i class="fa fa-star"></i>
+            {% endfor %}
+            <div class="review-count">{{post.rating}} (2,213)</div>
+          </div>
+          <h3>
+            <a href="{{post.get_absolute_url}}"> {{post.name}}</a>
+          </h3>
+          <div class="product-value">
+            {% if post.is_discounted %}
+            <div class="d-flex">
+              <small class="regular-price">
+                MRP <del>${{post.price}}</del>
+              </small>
+              <div class="off-price">{{post.get_percentage_off}}% off</div>
+            </div>
+            <div class="current-price">${{post.get_discounted_price}}</div>
+            {% else %}
+            <div class="current-price">${{post.get_discounted_price}}</div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %} {% endif %}
+    </div>
+  </div>
+</div>
